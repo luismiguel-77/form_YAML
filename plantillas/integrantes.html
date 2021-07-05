@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>{{nom}}</title>
+        <link href="{{ url_for('mirecurso', path='/misEstilos.css') }}" rel="stylesheet">
+    </head>
+    <body>
+        <div id="titulos">sitio personal de {{nom}}</div>
+        <div id="parrafos">
+            <ul>
+                <li><strong>Matricula:</strong> {{matri}}</li>
+                <li><strong>Nombre:</strong>  {{nom}}</li>
+                <li><strong>Edad:</strong> {{edad}}</li>
+            </ul>
+        </div>
+    </body>
+</html>
+
