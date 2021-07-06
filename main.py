@@ -35,6 +35,13 @@ async def read_item(request: Request):
     datos = await cargarYAML()
     return miPlantilla.TemplateResponse("index.html",{"request":request,"lista":datos})
 
+@app.get("/datos/{id}")
+async def datos(request:Request,id:int):
+    datos = await cargarYAM()
+    dat = datos[id]
+    dat2 = dat['item_id']
+    return miPlantilla.TemplateResponse("datos_Equipo.html",{"request":request,"lista":datos,"id":dat2})
+
 
 @app.get("/conocenos")
 async def cono(request: Request):
@@ -98,7 +105,7 @@ async def modificar(request: Request, id:int):
     mod_form = await request.form()
     mod_datos["matricula"] = int(mod_form["f_matricula"])
     mod_datos["nombre"] = (mod_form["f_nombre"])
-    mod_form["Apaterno"] = (mod_form["f_paterno"])
+    mod_datos["Apaterno"] = (mod_form["f_paterno"])
     mod_datos["Amaterno"] = (mod_form["f_materno"])
     mod_datos["edad"] = int(mod_form["f_edad"])
     mod_datos["correo"] = (mod_form["f_correo"])
